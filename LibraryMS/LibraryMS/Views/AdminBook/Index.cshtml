@@ -1,0 +1,97 @@
+﻿@model X.PagedList.IPagedList<Model.Book>
+@using X.PagedList.Mvc;
+
+@{
+    ViewData["Title"] = "图书管理";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>图书列表</h1>
+<hr />
+
+<div style="margin-bottom: 20px;" class="pull-right">
+    <form asp-action="Index" method="get" class="form-inline" role="form">
+        @Html.TextBox("searchKey", ViewData["SearchKey"] as string, htmlAttributes: new { @class = "form-control", placeHolder = "请输入图书名称名称" })
+        <input type="submit" value="搜索" class="btn btn-info" />
+
+        <a href="/AdminBook/Create" class="btn btn-primary" style="margin-left: 20px;">添加图书</a>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                书名
+            </th>
+            <th>
+                ISBN
+            </th>
+            <th>
+                出版社
+            </th>
+            <th>
+                分类
+            </th>
+            <th>
+                采购价
+            </th>
+            <th>
+                在馆数量
+            </th>
+            <th>
+                位置
+            </th>
+            <th>
+                添加时间
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Press)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classify.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateTime)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                    @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "btn btn-sm  btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchKey = ViewData["SearchKey"] }))

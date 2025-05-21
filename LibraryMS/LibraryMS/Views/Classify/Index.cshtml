@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Model.Classify>
+
+@{
+    ViewData["Title"] = "分类管理";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>分类列表</h1>
+<hr />
+
+<p class="pull-right">
+    <a href="Create" class="btn btn-primary" style="margin-left: 20px;">添加分类</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "btn btn-sm  btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

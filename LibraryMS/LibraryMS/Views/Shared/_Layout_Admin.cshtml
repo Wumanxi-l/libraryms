@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 图书馆图书管理系统</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("图书馆图书管理系统", "Index", "AdminBook", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("图书管理", "Index", "AdminBook")</li>
+                        <li>@Html.ActionLink("分类管理", "Index", "Classify")</li>
+                        <li>@Html.ActionLink("用户管理", "Index", "User")</li>
+                        <li>@Html.ActionLink("借书记录", "Records", "Borrow")</li>
+                        <li>@Html.ActionLink("用户借书统计", "UserStatistic", "Borrow")</li>
+                        <li>@Html.ActionLink("图书统计", "BookStatistic", "Borrow")</li>
+
+
+                        @if (Session["AdminName"] != null)
+                        {
+                            <li class="nav-item" style="margin-left: 100px">
+                                <a class="nav-link text-dark" href="#">@Session["AdminName"].ToString()</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Home/Logout">退出</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - 图书馆图书管理系统
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

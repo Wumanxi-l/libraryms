@@ -1,0 +1,18 @@
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\bin\Debug\Model.dll
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\bin\Debug\Model.pdb
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\bin\Debug\EntityFramework.dll
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\bin\Debug\EntityFramework.xml
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.CopyComplete
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.dll
+E:\VS Working\其他\mvc\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.pdb
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\bin\Debug\Model.dll
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\bin\Debug\Model.pdb
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\bin\Debug\EntityFramework.dll
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\bin\Debug\EntityFramework.xml
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.csproj.CopyComplete
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.dll
+D:\大三第二学期\hjq\课设\三层-MVC图书馆管理系统\图书馆管理系统\LibraryMS\Model\obj\Debug\Model.pdb

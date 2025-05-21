@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "用户借书排行统计";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>用户借书排行统计</h1>
+<hr />
+<div id="chart" style="height: 500px;margin-top: 40px;"></div>
+
+
+@section Scripts {
+<script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+
+<script>
+$(function() {
+    getData();
+})
+
+function getData() {
+    //获取统计数据
+    $.ajax({
+        type: "Get", //http通信传参方式
+        url: "/Borrow/GetUserStatistic", //服务器端资源
+        contentType: "application/json; charset=utf-8", //客户端传值
+        dataType: "json", //服务器传值格式
+        //回调函数：
+        success: function (data) {
+            initChart(data);
+        },
+        error: function (err) {
+            alert(err);
+        }
+    });
+}
+
+function initChart(data) {
+    var names = [];
+    var values = [];
+    data.filter(x => {
+        names.push(x.Name);
+        values.push(x.Value);
+    });
+
+    var chartDom = document.getElementById('chart');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: [{
+            text: "用户借书统计",
+            left: "center"
+        }],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: names,
+            axisTick: {
+                alignWithLabel: true
+            }
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: values,
+                type: 'bar'
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+}
+</script>
+}
+
+

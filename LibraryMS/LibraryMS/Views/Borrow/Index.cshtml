@@ -1,0 +1,89 @@
+﻿@model X.PagedList.IPagedList<Model.Borrow>
+@using X.PagedList.Mvc;
+
+@{
+    ViewData["Title"] = "借书记录";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>借书记录</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                借书编号
+            </th>
+            <th>
+                用户名
+            </th>
+            <th>
+                书名
+            </th>
+            <th>
+                借书时间
+            </th>
+            <th>
+                应还时间
+            </th>
+            <th>
+                还书时间
+            </th>
+            <th>
+                是否还书
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BorrowTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnTime)
+                </td>
+                <td>
+                    @(item.IsReturn ? "是" : "否")
+                </td>
+                <td>
+                    @if (item.DueTime >= DateTime.Now || item.IsReturn)
+                    {
+                        <span class="text-success">正常</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">已超期</span>
+                    }
+                </td>
+                <td>
+                    @if(!item.IsReturn) {
+                        @Html.ActionLink("还书", "Return", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                    }
+               </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchKey = ViewData["SearchKey"] }))
+
